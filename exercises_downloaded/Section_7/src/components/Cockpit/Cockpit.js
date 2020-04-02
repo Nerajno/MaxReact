@@ -1,8 +1,13 @@
-import React from 'react';
+import React,  { useEffect, useCallback } from 'react';
 
 import classes from './Cockpit.css';
 
 const cockpit = ( props ) => {
+  useEffect(() => {
+    console.log('[Cockpit.js] useEffect ');
+    // Https request can happen here
+  }, [props.persons]); // runs only when there is a change in this component
+
     const assignedClasses = [];
     let btnClass = '';
     if (props.showPersons) {
